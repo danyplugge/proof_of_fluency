@@ -2,6 +2,10 @@
 
 ## How to run
 
+# Start up Docker Postgres Database 
+    docker exec -it proof_of_fluency-postgres-1 psql -U admin -d oews_onet
+
+# Load Data 
 
 
 
@@ -10,6 +14,9 @@
 
 
 
+
+# Where Did I stuggle?
+1. Getting the right inputs for the data
 
 # Assignment Params
 ### Practical Mini-Challenge: OEWS × O*NET “Proof of Fluency”
@@ -114,17 +121,17 @@ Use any functions/operators you like; clarity and correctness of matching logic 
 
 Submission Checklist
 
-    your-repo/
+      your-repo/
 
-    ├── README.md # how to run / where you stubbed
+           ├── README.md # how to run / where you stubbed
 
-    ├── docker-compose.yml   # (optional)
+           ├── docker-compose.yml   # (optional)
 
-    ├── load_data.py
+           ├── load_data.py
 
-    ├── views.sql
+           ├── views.sql
 
-    └── analysis.ipynb (or analysis.py)
+           └── analysis.ipynb (or analysis.py)
 
 Push to GitHub (public or private) and share the link.
 
