@@ -3,12 +3,18 @@
 ## How to run
 
 # Start up Docker Postgres Database 
+    docker-compose up -d
+
     docker exec -it proof_of_fluency-postgres-1 psql -U admin -d oews_onet
 
 # Load Data 
+    Run 
 
 
-
+#### TODO 
+1 get views populated
+2 finish annalysis
+3 finish documentation
 
 
 
