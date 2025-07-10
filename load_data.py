@@ -13,7 +13,7 @@ const = {
     "db_password": "admin",
     "db_host": "localhost",
     "db_port": "5432",
-    "db_name": "oews_onetA",
+    "db_name": "oews_onet",
 }
 #TODO: optimize params
 def load_data(source, table_name, sheet, columns, data_types, engine):
@@ -49,33 +49,6 @@ def load_data(source, table_name, sheet, columns, data_types, engine):
         if conn is not None:
             conn.close()
 
-def execute_sql_file(file_path):
-    """
-    runs all views in given file path
-    
-    Parameters:
-    file_path(string): path to SQL file,  
-    
-    """
-    engine = create_engine(get_connection_string()) 
-    conn = None 
-    try:
-        with engine.connect() as conn:
-            with open(file_path, 'r') as f:
-                sql = f.read()
-                print(sql)
-                conn.execute(text(sql))
-                print("Views created successfully.")
-
-                # Check row count
-            result = conn.execute(text(f"SELECT COUNT(*) FROM test;"))
-            upper_df = conn.execute(text(f"SELECT COUNT(*) FROM oews_raw;"))
-            up_row_count = upper_df.scalar() 
-            row_count = result.scalar()  # Fetch the count from the result
-            print(f"Row count in vw_onet_closest_oews{up_row_count}: {row_count}")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
 
 def get_connection_string():
      """
@@ -107,8 +80,6 @@ def onet_skills():
 
 
 if __name__ == "__main__":
-    #TODO check for if the table exists and only run new tables. 
-    #     functionality to update the table might also be wanted
-    #oews_raw()
-    #onet_skills()
-    execute_sql_file('viewstest.sql')
+
+    oews_raw()
+    onet_skills()

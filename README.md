@@ -1,28 +1,30 @@
-# proof_of_fluency
+# Proof of Fluency
+### Overview
+This project aims to demonstrate fluency in data handling and analysis by integrating data from the Occupational Employment and Wage Statistics (OEWS) and O*NET databases. The project involves setting up a PostgreSQL database, loading data, creating SQL views, and performing data analysis using Python and Pandas.
 
 ## How to run
 
-# Start up Docker Postgres Database 
+#### Start up Docker Postgres Database 
+to start up the database run the following commmands:
     docker-compose up -d
 
     docker exec -it proof_of_fluency-postgres-1 psql -U admin -d oews_onet
 
-# Load Data 
-    Run 
+#### Load Data 
+Run file load_data.py and both the oews_raw and onet_skills tables will be loaded into the database.
 
+TODO: I am not importing the data from the public data site correctly.
 
-#### TODO 
-1 get views populated
-2 finish annalysis
-3 finish documentation
+TODO: create a dependencies file so you don't have to install the dependencies manually
 
+#### Views
+Run the view.sql in the database to generate the views, which defines two views that facilitate further analysis.
 
+TODO: I was not able to make a runner for this so I created a data sample in analysis so that the notebook is runable. There is a read function as well to demonstrate how that would be done with a view.
 
+#### Analysis
+Run the Jupyter notebook (analysis.ipynb) to visualize the data and perform analysis. This notebook includes various visualizations and aggregations based on the created views.
 
-
-
-# Where Did I stuggle?
-1. Getting the right inputs for the data
 
 # Assignment Params
 ### Practical Mini-Challenge: OEWS × O*NET “Proof of Fluency”
